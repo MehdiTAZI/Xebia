@@ -1,10 +1,20 @@
 TODO :
-UML Classes
-Coding
-publier sur cloud
+1) CORE DEVELOPPEMENTS : Modeling - Coding - Commenting - Testing
+2) IHM DEVELOPPEMENT : Design + Implementing 
+3)Publish on the cloud
 
 DOING :
 Application sample code
 
 DONE :
 Application Architecture 
+
+
+
+
+-------
+TO USE : 
+-------
+DP => 
+FACADE For MowerPosition in order to make easier the use of the api
+Adapter for the Grass and Mower file reading MowerFileAdapter

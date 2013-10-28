@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import fr.xebia.mehdi.lawnmower.command.MowerCommandList;
 import fr.xebia.mehdi.lawnmower.command.MowerCommand;
 import fr.xebia.mehdi.lawnmower.command.MowerCommandListStringAdapter;
+import fr.xebia.mehdi.lawnmower.exception.MowerOutOfLawnBoundaryException;
 import fr.xebia.mehdi.lawnmower.exception.NegativeNumberException;
 import fr.xebia.mehdi.lawnmower.exception.NotValidDirectionException;
 import fr.xebia.mehdi.lawnmower.exception.UnrecognizedCommandException;
@@ -64,13 +65,13 @@ public class LawnMowerController {
 		load(mowerPositionconfig,mowerCommandListconfig);
 	}
 	
-	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException, MowerOutOfLawnBoundaryException {
 		load(mowerPositionconfig,mowerCommandListconfig,lawnConfig);
 	}
 	
 	
 	//initialise the controler mower using strings : 
-	public void load(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+	public void load(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException, MowerOutOfLawnBoundaryException {
 
 		String[] upperCordinate = lawnConfig.split(" ");
 		String[] mowerPositionAndDirection = mowerPositionconfig.split(" ");
@@ -82,6 +83,14 @@ public class LawnMowerController {
 		this.lawn.setUpperCorner(new Vector2D(Integer.parseInt(upperCordinate[0]),Integer.parseInt(upperCordinate[1])));
 		this.mower.setCurrentPosition(new MowerPosition(Integer.parseInt(mowerPositionAndDirection[0]), Integer.parseInt(mowerPositionAndDirection[1]), mowerPositionAndDirection[2].charAt(0)));
 		this.mowerCommandList = new MowerCommandListStringAdapter(mowerCommandList);
+		
+		if(this.mower.getCurrentPosition().getX()>this.lawn.getUpperCorner().getX() 
+			|| this.mower.getCurrentPosition().getX()<this.lawn.getLowerCorner().getX() 
+			||this.mower.getCurrentPosition().getY()>this.lawn.getUpperCorner().getY() 
+			|| this.mower.getCurrentPosition().getY()<this.lawn.getLowerCorner().getY() ){
+			throw new MowerOutOfLawnBoundaryException();
+		}
+		
 	}
 	
 	//initialise the controler mowerand lawn using strings : 

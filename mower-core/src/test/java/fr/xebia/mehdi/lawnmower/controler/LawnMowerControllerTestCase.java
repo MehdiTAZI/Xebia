@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import fr.xebia.mehdi.lawnmower.exception.MowerOutOfLawnBoundaryException;
 import fr.xebia.mehdi.lawnmower.exception.NegativeNumberException;
 import fr.xebia.mehdi.lawnmower.exception.NotValidDirectionException;
 import fr.xebia.mehdi.lawnmower.exception.UnrecognizedCommandException;
@@ -33,7 +34,7 @@ public class LawnMowerControllerTestCase {
 	 * lawn lookAt : North
 	*/
 	@Test
-	public void firstMowerTest() {
+	public void firstMowerTest() throws MowerOutOfLawnBoundaryException {
 
 		try {
 			this.lawnMowerController =  new LawnMowerController("1 2 N", "GAGAGAGAA",lawnConfiguration);
@@ -71,7 +72,7 @@ public class LawnMowerControllerTestCase {
 	 * lawn lookAt : EAST
 	*/
 	@Test
-	public void secondMowerTest() {
+	public void secondMowerTest() throws MowerOutOfLawnBoundaryException {
 
 		try {
 			this.lawnMowerController =  new LawnMowerController("3 3 E", "AADAADADDA",lawnConfiguration);
@@ -103,7 +104,7 @@ public class LawnMowerControllerTestCase {
 	 * */
 	
 	@Test(expected = UnrecognizedCommandException.class)
-	public void UnRecognizedCommandTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+	public void UnRecognizedCommandTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException, MowerOutOfLawnBoundaryException {
 			this.lawnMowerController =  new LawnMowerController("3 3 E", "AADNADADDA",lawnConfiguration);
 	}
 	
@@ -112,8 +113,13 @@ public class LawnMowerControllerTestCase {
 	 * */
 	
 	@Test(expected = NegativeNumberException.class)
-	public void NegativeNumberTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+	public void NegativeNumberTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException, MowerOutOfLawnBoundaryException {
 			this.lawnMowerController =  new LawnMowerController("-3 3 E", "AADADADDA",lawnConfiguration);
+	}
+	
+	@Test(expected = MowerOutOfLawnBoundaryException.class)
+	public void OutOfLawnBoundaryTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException, MowerOutOfLawnBoundaryException {
+			this.lawnMowerController =  new LawnMowerController("7 3 E", "AADADADDA",lawnConfiguration);
 	}
 	
 }

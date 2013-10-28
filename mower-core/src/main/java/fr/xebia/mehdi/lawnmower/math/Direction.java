@@ -1,6 +1,8 @@
 package fr.xebia.mehdi.lawnmower.math;
 
-//direction enumeratin
+import fr.xebia.mehdi.lawnmower.exception.NotValidDirectionException;
+
+//direction enumeration
 public enum Direction {
 	
 	// the values match with the four main cardinal orientations.
@@ -33,14 +35,14 @@ public enum Direction {
 		this.letter = letter;
 	}
 
-	public static Direction getDirectionByLeeter(final char letter){
+	public static Direction getDirectionByLeeter(final char letter) throws NotValidDirectionException{
 		switch(letter){
 			case 'N' : return NORTH ;
 			case 'E' : return EAST ;
 			case 'W' : return WEST ;
 			case 'S' : return SOUTH ;
 			
-			default : return null;
+			default : throw new NotValidDirectionException();//no valid direction
 		}
 	}
 	

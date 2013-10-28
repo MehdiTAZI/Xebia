@@ -1,14 +1,14 @@
 TODO :
-1) CORE DEVELOPPEMENTS : Modeling - Coding - Commenting - Testing
 2) IHM DEVELOPPEMENT : Design + Implementing 
 3)Publish on the cloud
 
 DOING :
-Application sample code
+CORE DEVELOPPEMENTS : Commenting - Testing
 
 DONE :
+CORE DEVELOPPEMENTS : Modeling - Coding
 Application Architecture 
-
+Application sample code
 
 
 
@@ -17,4 +17,5 @@ TO USE :
 -------
 DP => 
 FACADE For MowerPosition in order to make easier the use of the api
-Adapter for the Grass and Mower file reading MowerFileAdapter
+Adapter for the Lawn and Mower file reading MowerFileAdapter , for MowerCommandList and the specialized classes
+Command for the MowerCommandList behaviors

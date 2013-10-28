@@ -1,6 +1,7 @@
 package fr.xebia.mehdi.lawnmower.model;
 
 import fr.xebia.mehdi.lawnmower.exception.NegativeNumberException;
+import fr.xebia.mehdi.lawnmower.exception.NotValidDirectionException;
 import fr.xebia.mehdi.lawnmower.math.Direction;
 import fr.xebia.mehdi.lawnmower.math.Vector2D;
 
@@ -32,7 +33,7 @@ public class MowerPosition {
 		this.currentDirection=mowerDirection;	
 	}
 	
-	public MowerPosition(final int x, final int y, final char directionLetter) throws NegativeNumberException {
+	public MowerPosition(final int x, final int y, final char directionLetter) throws NegativeNumberException, NotValidDirectionException {
 		if (x < 0 || y <0 ) {
 			throw new NegativeNumberException(POISITION_ERROR_MESSAGE);
 		}
@@ -79,7 +80,7 @@ public class MowerPosition {
 		this.currentDirection = direction;
 	}
 
-	public void setDirection(final char directionLetter) {
+	public void setDirection(final char directionLetter) throws NotValidDirectionException {
 		this.currentDirection = Direction.getDirectionByLeeter(directionLetter);
 		if (currentDirection == null) {
 			throw new NullPointerException(DIRECTION_ERROR_MESSAGE);

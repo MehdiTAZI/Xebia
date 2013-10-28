@@ -2,11 +2,11 @@ package fr.xebia.mehdi.lawnmower.command;
 
 import java.util.LinkedList;
 
-public class ObjectMowerCommandList implements MowerCommandList {
+public class MowerCommandListObject implements MowerCommandList {
 	
 	private LinkedList<MowerCommand> commandList;
 	
-	public ObjectMowerCommandList(LinkedList<MowerCommand> commandList){
+	public MowerCommandListObject(LinkedList<MowerCommand> commandList){
 		this.commandList = commandList; 
 	}
 	

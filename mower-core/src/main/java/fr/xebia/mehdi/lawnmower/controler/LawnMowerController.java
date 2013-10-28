@@ -4,8 +4,9 @@ import java.util.LinkedList;
 
 import fr.xebia.mehdi.lawnmower.command.MowerCommandList;
 import fr.xebia.mehdi.lawnmower.command.MowerCommand;
-import fr.xebia.mehdi.lawnmower.command.StringMowerCommandList;
+import fr.xebia.mehdi.lawnmower.command.MowerCommandListStringAdapter;
 import fr.xebia.mehdi.lawnmower.exception.NegativeNumberException;
+import fr.xebia.mehdi.lawnmower.exception.NotValidDirectionException;
 import fr.xebia.mehdi.lawnmower.exception.UnrecognizedCommandException;
 import fr.xebia.mehdi.lawnmower.math.Vector2D;
 import fr.xebia.mehdi.lawnmower.model.Lawn;
@@ -55,15 +56,15 @@ public class LawnMowerController {
 		this.lawn = lawn;
 	}
 	
-	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException {
+	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 		load(mowerPositionconfig,mowerCommandListconfig);
 	}
 	
-	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException {
+	public LawnMowerController(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 		load(mowerPositionconfig,mowerCommandListconfig,lawnConfig);
 	}
 	
-	public void load(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException {
+	public void load(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 
 		String[] upperCordinate = lawnConfig.split(" ");
 		String[] mowerPositionAndDirection = mowerPositionconfig.split(" ");
@@ -74,9 +75,9 @@ public class LawnMowerController {
 		
 		this.lawn.setUpperCorner(new Vector2D(Integer.parseInt(upperCordinate[0]),Integer.parseInt(upperCordinate[1])));
 		this.mower.setCurrentPosition(new MowerPosition(Integer.parseInt(mowerPositionAndDirection[0]), Integer.parseInt(mowerPositionAndDirection[1]), mowerPositionAndDirection[2].charAt(0)));
-		this.mowerCommandList = new StringMowerCommandList(mowerCommandList);
+		this.mowerCommandList = new MowerCommandListStringAdapter(mowerCommandList);
 	}
-	public void load(final String mowerPositionconfig,final String mowerCommandListconfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException {
+	public void load(final String mowerPositionconfig,final String mowerCommandListconfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 
 		String[] mowerPositionAndDirection = mowerPositionconfig.split(" ");
 		String mowerCommandList = mowerCommandListconfig;
@@ -85,7 +86,7 @@ public class LawnMowerController {
 		this.mower = new Mower();
 		
 		this.mower.setCurrentPosition(new MowerPosition(Integer.parseInt(mowerPositionAndDirection[0]), Integer.parseInt(mowerPositionAndDirection[1]), mowerPositionAndDirection[2].charAt(0)));
-		this.mowerCommandList = new StringMowerCommandList(mowerCommandList);
+		this.mowerCommandList = new MowerCommandListStringAdapter(mowerCommandList);
 	}
 	
 	// for each commandList update MowerPosition with the correct value

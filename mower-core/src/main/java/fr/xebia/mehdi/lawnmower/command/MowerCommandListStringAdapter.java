@@ -4,9 +4,10 @@ import java.util.LinkedList;
 
 import fr.xebia.mehdi.lawnmower.exception.UnrecognizedCommandException;
 
-public class StringMowerCommandList extends ObjectMowerCommandList {
+//Fill mowerCommandListObject using string 
+public class MowerCommandListStringAdapter extends MowerCommandListObject {
 
-	public StringMowerCommandList(String mowercommandList) throws UnrecognizedCommandException {
+	public MowerCommandListStringAdapter(String mowercommandList) throws UnrecognizedCommandException {
 		super(null);
 		
 		LinkedList<MowerCommand> mowerCommands = new LinkedList<MowerCommand>();
@@ -15,13 +16,13 @@ public class StringMowerCommandList extends ObjectMowerCommandList {
 			
 			switch(command){
 			case 'G':
-				mowerCommands.add(new LeftCommand());
+				mowerCommands.add(new MowerCommandLeft());
 				break;
 			case 'D':
-				mowerCommands.add(new RightCommand());
+				mowerCommands.add(new MowerCommandRight());
 				break;
 			case 'A' : 
-				mowerCommands.add(new ForwardCommand());
+				mowerCommands.add(new MowerCommandForward());
 				break;
 			default:
 				throw new UnrecognizedCommandException();

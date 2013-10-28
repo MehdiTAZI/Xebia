@@ -4,12 +4,13 @@ import fr.xebia.mehdi.lawnmower.math.Direction;
 import fr.xebia.mehdi.lawnmower.model.Lawn;
 import fr.xebia.mehdi.lawnmower.model.Mower;
 
-//When mower must turn Right
-public class RightCommand implements MowerCommand {
+//Mower behavior when it must turn right
+public class MowerCommandRight implements MowerCommand {
 
 	public void updatePosition(Mower mower, Lawn lawn) {
 		final Direction direction = mower.getCurrentPosition().getDirection();
-
+		
+		//mower changing direction
 		if (direction == Direction.NORTH) {
 			mower.getCurrentPosition().setDirection(Direction.EAST);
 		} else if (direction == Direction.EAST) {

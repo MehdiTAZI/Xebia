@@ -98,6 +98,22 @@ public class LawnMowerControllerTestCase {
 	}
 	
 
-	//add ErrorTest , no commandListTest
+	/*
+	 * UnrecognizedCommandException expected
+	 * */
+	
+	@Test(expected = UnrecognizedCommandException.class)
+	public void UnRecognizedCommandTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+			this.lawnMowerController =  new LawnMowerController("3 3 E", "AADNADADDA",lawnConfiguration);
+	}
+	
+	/*
+	 * NegativeNumberException expected
+	 * */
+	
+	@Test(expected = NegativeNumberException.class)
+	public void NegativeNumberTest() throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
+			this.lawnMowerController =  new LawnMowerController("-3 3 E", "AADADADDA",lawnConfiguration);
+	}
 	
 }

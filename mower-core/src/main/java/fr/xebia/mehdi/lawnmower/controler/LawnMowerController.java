@@ -16,10 +16,12 @@ import fr.xebia.mehdi.lawnmower.model.MowerPosition;
 //LawnMower controler class
 public class LawnMowerController {
 
+	//fields
 	private Mower mower;
 	private Lawn lawn;
 	private MowerCommandList mowerCommandList;
 	
+	//getters and setters
 	public Mower getMower() {
 		return mower;
 	}
@@ -45,6 +47,8 @@ public class LawnMowerController {
 		this.mowerCommandList = mowerCommandList;
 	}
 
+	
+	//Constructors
 	public LawnMowerController(final Mower mower, final Lawn lawn,final MowerCommandList mowerCommandList) {
 		this.mower = mower;
 		this.lawn = lawn;
@@ -64,6 +68,8 @@ public class LawnMowerController {
 		load(mowerPositionconfig,mowerCommandListconfig,lawnConfig);
 	}
 	
+	
+	//initialise the controler mower using strings : 
 	public void load(final String mowerPositionconfig,final String mowerCommandListconfig,final String lawnConfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 
 		String[] upperCordinate = lawnConfig.split(" ");
@@ -77,6 +83,8 @@ public class LawnMowerController {
 		this.mower.setCurrentPosition(new MowerPosition(Integer.parseInt(mowerPositionAndDirection[0]), Integer.parseInt(mowerPositionAndDirection[1]), mowerPositionAndDirection[2].charAt(0)));
 		this.mowerCommandList = new MowerCommandListStringAdapter(mowerCommandList);
 	}
+	
+	//initialise the controler mowerand lawn using strings : 
 	public void load(final String mowerPositionconfig,final String mowerCommandListconfig) throws NumberFormatException, NegativeNumberException, UnrecognizedCommandException, NotValidDirectionException {
 
 		String[] mowerPositionAndDirection = mowerPositionconfig.split(" ");
@@ -91,6 +99,8 @@ public class LawnMowerController {
 	
 	// for each commandList update MowerPosition with the correct value
 	public void process() throws UnrecognizedCommandException {
+		
+		//nullity checks
 		if (this.mowerCommandList != null) {
 
 			LinkedList<MowerCommand> mowerCommands = this.mowerCommandList

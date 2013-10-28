@@ -22,6 +22,7 @@ public class MowerCommandLeft implements MowerCommand {
 		}
 	}
 	
+	//for debuging purpose
 	@Override
 	public String toString() {
 		return "Left";

@@ -21,7 +21,8 @@ public class MowerCommandRight implements MowerCommand {
 			mower.getCurrentPosition().setDirection(Direction.NORTH);
 		}
 	}
-
+	
+	//for debuging purpose
 	@Override
 	public String toString() {
 		return "Right";

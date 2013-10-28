@@ -13,6 +13,7 @@ public class MowerCommandForward implements MowerCommand {
 		}
 	}
 	
+	//for debuging purpose
 	@Override
 	public String toString() {
 		return "Forward";

@@ -17,6 +17,7 @@ public class LawnMowersController {
 
 	private List<LawnMowerController> lawnMowerControllers;
 
+	//get a given mower
 	public Mower giveMower(int index){
 		if (index >= lawnMowerControllers.size()){
 			throw new ArrayIndexOutOfBoundsException("the mower you'r asking for , doesn't exist.");
@@ -24,6 +25,7 @@ public class LawnMowersController {
 		return lawnMowerControllers.get(index).getMower();
 	}
 	
+	//initialise all the Mowers and the single lawn by the given filename
 	public LawnMowersController(final String fileName) throws IOException,FileFormatException, NoMowerFoundException {
 		lawnMowerControllers = new ArrayList<LawnMowerController>();
 		String lawnConfiguration = null;
@@ -65,6 +67,7 @@ public class LawnMowersController {
 		reader.close();
 	}
 
+	//process all the lawnMowerControllers
 	public void processAll() throws UnrecognizedCommandException {
 		for (LawnMowerController lawnMowerController : lawnMowerControllers) {
 			lawnMowerController.process();

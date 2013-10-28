@@ -3,8 +3,8 @@ package fr.xebia.mehdi.lawnmower.command;
 //Fill mowerCommandListObject using file 
 public class MowerCommandListFileAdapter extends MowerCommandListObject {
 
-	public MowerCommandListFileAdapter(String fileName) {
+	public MowerCommandListFileAdapter(final String fileName) {
 		super(null);
-		//TODO : IMPLEMENTATION
+		//TODO : TO IMPLEMENTATION
 	}
 }

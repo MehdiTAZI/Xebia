@@ -1,11 +1,16 @@
 TODO :
-2) IHM DEVELOPPEMENT : Design + Implementing 
+1)MAKE CONTRACT AND SERVICES LAYER
+2)IHM DEVELOPPEMENT : Design + Implementing 
 3)Publish on the cloud
 
 DOING :
-CORE DEVELOPPEMENTS :Testing
+MAKE CONTRACT AND SERVICES LAYER : RESPECT REST ARCHITECTURE
+CREATE IHM : CONSUME WS USING CONTRACT => use the given services to implement 
+a simple HTML5 GRIDS with all mowers before and after processing 
+
 DONE :
 CORE DEVELOPPEMENTS : Modeling - Coding
+CORE DEVELOPPEMENTS :Testing
 Application Architecture 
 Application sample code
 CORE DEVELOPPEMENTS : Commenting - Testing

@@ -31,10 +31,11 @@ public enum Direction {
 		return letter;
 	}
 
-	public void setLetter(char letter) {
+	public void setLetter(final char letter) {
 		this.letter = letter;
 	}
 
+	//return a given Direction using character
 	public static Direction getDirectionByLeeter(final char letter) throws NotValidDirectionException{
 		switch(letter){
 			case 'N' : return NORTH ;

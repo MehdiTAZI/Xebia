@@ -1,7 +1,6 @@
 package fr.xebia.mehdi.lawnmower.command;
 
 import fr.xebia.mehdi.lawnmower.model.Lawn;
-
 import fr.xebia.mehdi.lawnmower.model.Mower;
 
 //Mower behavior when it must go straight
@@ -12,6 +11,10 @@ public class MowerCommandForward implements MowerCommand {
 		if (!lawn.isCollid(mower)) {
 			mower.move();
 		}
-		
+	}
+	
+	@Override
+	public String toString() {
+		return "Forward";
 	}
 }

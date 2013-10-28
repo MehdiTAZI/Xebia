@@ -25,5 +25,12 @@ public class Mower {
 	public void move(){
 		this.getCurrentPosition().move();
 	}
+
+
+	@Override
+	public String toString() {
+		return "("+this.position.getX()+","+this.position.getY()+") LookAt : " + this.position.getDirection();
+	}
+	
 	
 }

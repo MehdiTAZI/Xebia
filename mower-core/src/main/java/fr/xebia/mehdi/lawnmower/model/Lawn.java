@@ -49,4 +49,12 @@ public class Lawn {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		
+		return this.lowerCorner + " => " + this.upperCorner;
+	}
+	
+	
 }

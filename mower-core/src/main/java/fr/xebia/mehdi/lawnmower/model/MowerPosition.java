@@ -89,7 +89,7 @@ public class MowerPosition {
 	
 	// move the mower in the corresponding direction
 	protected void move(){
-		this.currentPosition.add(this.currentDirection.getValue());
+		this.currentPosition = this.currentPosition.add(this.currentDirection.getValue());
 	}
 
 }

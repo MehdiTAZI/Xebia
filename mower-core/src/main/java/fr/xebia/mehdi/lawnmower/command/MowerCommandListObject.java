@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class MowerCommandListObject implements MowerCommandList {
 	
-	private LinkedList<MowerCommand> commandList;
+	protected LinkedList<MowerCommand> commandList;
 	
 	public MowerCommandListObject(LinkedList<MowerCommand> commandList){
 		this.commandList = commandList; 

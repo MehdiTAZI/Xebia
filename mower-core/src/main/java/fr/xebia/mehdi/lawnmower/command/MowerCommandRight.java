@@ -20,7 +20,11 @@ public class MowerCommandRight implements MowerCommand {
 		} else if (direction == Direction.WEST) {
 			mower.getCurrentPosition().setDirection(Direction.NORTH);
 		}
-
 	}
 
+	@Override
+	public String toString() {
+		return "Right";
+	}
+	
 }

@@ -29,6 +29,8 @@ public class MowerCommandListStringAdapter extends MowerCommandListObject {
 			}
 		}
 		
+		this.commandList = mowerCommands;
+		
 	}
 
 }

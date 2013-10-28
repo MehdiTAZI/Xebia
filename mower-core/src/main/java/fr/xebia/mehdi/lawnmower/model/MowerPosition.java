@@ -1,4 +1,4 @@
-package fr.xebia.mehdi.lawnmower.model.helper;
+package fr.xebia.mehdi.lawnmower.model;
 
 import fr.xebia.mehdi.lawnmower.exception.NegativeNumberException;
 import fr.xebia.mehdi.lawnmower.math.Direction;
@@ -7,16 +7,17 @@ import fr.xebia.mehdi.lawnmower.math.Vector2D;
 //MowerPosition use Facade design pattern in order to make the use of api easier 
 public class MowerPosition {
 	
+	//Error messages
 	private static final String POISITION_ERROR_MESSAGE = "LawnMower current position must be greater or equal to zero.";
-	private static final String DIRECTION_ERROR_MESSAGE = "direction must be different from null , use N for North , E for Est , S for South , W for West";
+	private static final String DIRECTION_ERROR_MESSAGE = "direction must be different from null , use N for North , E for Est , S for South , W for West.";
 
-	// the currentPosition of the
+	// the currentPosition of the mower
 	private Vector2D currentPosition;
 
 	// the cardinal orientation of the Mower
 	private Direction currentDirection;
 
-	
+	//Constructors
 	public MowerPosition(final Vector2D mowerPosition, final Direction mowerDirection) throws NegativeNumberException {
 		
 		if (mowerPosition == null || mowerPosition.getX() < 0 || mowerPosition.getY() <0) {
@@ -71,18 +72,23 @@ public class MowerPosition {
 		return this.currentDirection;
 	}
 
-	public void setOrientation(Direction direction) {
+	public void setDirection(Direction direction) {
 		if (direction == null) {
 			throw new NullPointerException(DIRECTION_ERROR_MESSAGE);
 		}
 		this.currentDirection = direction;
 	}
 
-	public void setOrientation(final char directionLetter) {
+	public void setDirection(final char directionLetter) {
 		this.currentDirection = Direction.getDirectionByLeeter(directionLetter);
 		if (currentDirection == null) {
 			throw new NullPointerException(DIRECTION_ERROR_MESSAGE);
 		}
+	}
+	
+	// move the mower in the corresponding direction
+	protected void move(){
+		this.currentPosition.add(this.currentDirection.getValue());
 	}
 
 }

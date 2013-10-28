@@ -1,10 +1,11 @@
 package fr.xebia.mehdi.lawnmower.math;
 
+//direction enumeratin
 public enum Direction {
 	
 	// the values match with the four main cardinal orientations.
 	NORTH('N',Vector2D.NORTH),
-	EST('E',Vector2D.EST),
+	EAST('E',Vector2D.EAST),
 	WEST('W',Vector2D.WEST),
 	SOUTH('S',Vector2D.SOUTH);
 
@@ -35,7 +36,7 @@ public enum Direction {
 	public static Direction getDirectionByLeeter(final char letter){
 		switch(letter){
 			case 'N' : return NORTH ;
-			case 'E' : return EST ;
+			case 'E' : return EAST ;
 			case 'W' : return WEST ;
 			case 'S' : return SOUTH ;
 			

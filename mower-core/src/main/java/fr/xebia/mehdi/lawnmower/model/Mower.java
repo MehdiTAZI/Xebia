@@ -1,10 +1,10 @@
+
 package fr.xebia.mehdi.lawnmower.model;
 
-import fr.xebia.mehdi.lawnmower.model.helper.MowerPosition;
-
+//Mower class
 public class Mower {
 
-
+	//mower position and orientation
 	private MowerPosition position;
 
 
@@ -21,4 +21,9 @@ public class Mower {
 		this.position = position;
 	}
 
+	//move the mower corresponding to the 
+	public void move(){
+		this.getCurrentPosition().move();
+	}
+	
 }

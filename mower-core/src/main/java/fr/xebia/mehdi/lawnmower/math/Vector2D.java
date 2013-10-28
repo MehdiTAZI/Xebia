@@ -1,14 +1,16 @@
 package fr.xebia.mehdi.lawnmower.math;
 
+//Math Vector2D class
 public class Vector2D {
 
+	//some defaut values
 	public final static Vector2D ZERO = new Vector2D(0,0);
 	public final static Vector2D ONE = new Vector2D(1,1);
 	
 	public final static Vector2D NORTH = new Vector2D(0,1);
 	public final static Vector2D SOUTH = new Vector2D(0,-1);
 	public final static Vector2D WEST = new Vector2D(-1,0);
-	public final static Vector2D EST = new Vector2D(1,0);
+	public final static Vector2D EAST = new Vector2D(1,0);
 
 	
 	private int x;

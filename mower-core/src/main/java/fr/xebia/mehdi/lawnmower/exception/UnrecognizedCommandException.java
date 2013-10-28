@@ -7,7 +7,7 @@ public class UnrecognizedCommandException extends Exception {
 	private static final long serialVersionUID = 3214867065186661054L;
 
 	public UnrecognizedCommandException() {
-		super("the command is not recognized , please check the manual for the complete commands list.");
+		super("there is no mower configuration on the configuration file , please check the file content");
 	}
 
 	public UnrecognizedCommandException(String message) {

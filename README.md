@@ -1,8 +1,8 @@
 Xebia
 =====
 
-Technical Test at Xebia company : the source code is incomplete
+this is the beginning of a simple solution for Xebia's technical test : the source code is incomplete
 
-Test Technique chez Xebia : le code source est incomplèt.
+ceci est le début d'une solution simple pour le test technique de Xebia: le code source est incomplèt
 
 http://tazimehdi.com
